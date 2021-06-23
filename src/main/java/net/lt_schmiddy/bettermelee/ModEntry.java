@@ -1,8 +1,9 @@
-package net.fabricmc.example;
+package net.lt_schmiddy.bettermelee;
 
+import net.lt_schmiddy.bettermelee.config.ConfigHandler;
 import net.fabricmc.api.ModInitializer;
 
-public class ExampleMod implements ModInitializer {
+public class ModEntry implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -10,5 +11,6 @@ public class ExampleMod implements ModInitializer {
 		// Proceed with mild caution.
 
 		System.out.println("Hello Fabric world!");
+		ConfigHandler.load();
 	}
 }

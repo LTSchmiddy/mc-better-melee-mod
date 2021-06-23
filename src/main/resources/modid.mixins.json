@@ -1,12 +1,16 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "net.fabricmc.example.mixin",
+  "package": "net.lt_schmiddy.bettermelee.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "DamageEnchantmentMixin",
+    "FireAspectEnchantmentMixin",
+    "ImpalingEnchantmentMixin",
+    "KnockbackEnchantmentMixin",
+    "LootingEnchantmentMixin"
   ],
   "client": [
-    "ExampleMixin"
   ],
   "injectors": {
     "defaultRequire": 1
