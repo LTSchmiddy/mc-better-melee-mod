@@ -11,6 +11,7 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
 
+import net.lt_schmiddy.bettermelee.config.ConfigHandler;
 
 @Mixin( net.minecraft.enchantment.LuckEnchantment.class)
 public class LootingEnchantmentMixin extends Enchantment {
@@ -24,8 +25,13 @@ public class LootingEnchantmentMixin extends Enchantment {
 		
 		return super.isAcceptableItem(stack) || (
 			this.type == EnchantmentTarget.WEAPON && (
-				stack.getItem() instanceof TridentItem
-				|| stack.getItem() instanceof AxeItem
+				(
+					ConfigHandler.config.lootingOnTrident 
+					&& stack.getItem() instanceof TridentItem
+				) || (
+					ConfigHandler.config.knockbackOnAxe 
+					&& stack.getItem() instanceof AxeItem
+				)
 			)
 		);
 	}

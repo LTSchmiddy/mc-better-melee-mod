@@ -7,7 +7,7 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class ConfigHandler {
-    public static final File configFile = new File("config/bettermelee.json/");
+    public static final File configFile = new File("config/bettermelee.json");
     public static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     
     public static Config config;

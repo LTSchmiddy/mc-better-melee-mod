@@ -16,7 +16,6 @@ import net.minecraft.entity.EntityGroup;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-
 @Mixin( net.minecraft.enchantment.ImpalingEnchantment.class)
 public class ImpalingEnchantmentMixin extends Enchantment {
 	protected ImpalingEnchantmentMixin(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {

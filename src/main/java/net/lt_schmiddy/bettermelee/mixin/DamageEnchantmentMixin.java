@@ -30,7 +30,8 @@ public class DamageEnchantmentMixin extends Enchantment {
 	private void isAcceptableItem_trident(ItemStack stack, CallbackInfoReturnable<Object> info) {
 		
 		info.setReturnValue(info.getReturnValueZ() || (
-			stack.getItem() instanceof TridentItem
+			ConfigHandler.config.damageEnchantsOnTrident
+			&& stack.getItem() instanceof TridentItem
 			&& EnchantmentHelper.getLevel(Enchantments.IMPALING, stack) == 0
 		));
 	}

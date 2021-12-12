@@ -13,6 +13,8 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.TridentItem;
 
+import net.lt_schmiddy.bettermelee.config.ConfigHandler;
+
 
 @Mixin( net.minecraft.enchantment.KnockbackEnchantment.class)
 public class KnockbackEnchantmentMixin extends Enchantment {
@@ -25,10 +27,13 @@ public class KnockbackEnchantmentMixin extends Enchantment {
 	public boolean isAcceptableItem(ItemStack stack) {
 		
 		return super.isAcceptableItem(stack) || (
-			stack.getItem() instanceof AxeItem
-			|| stack.getItem() instanceof TridentItem
-			// || stack.getItem() instanceof BowItem
-			// || stack.getItem() instanceof CrossbowItem
+			(
+				ConfigHandler.config.knockbackOnTrident 
+				&& stack.getItem() instanceof TridentItem
+			) || (
+				ConfigHandler.config.knockbackOnAxe 
+				&& stack.getItem() instanceof AxeItem
+			)
 		);
 	}
 }

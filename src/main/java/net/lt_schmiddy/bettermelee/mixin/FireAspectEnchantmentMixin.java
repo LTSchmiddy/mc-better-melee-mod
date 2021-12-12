@@ -10,6 +10,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 
+import net.lt_schmiddy.bettermelee.config.ConfigHandler;
 
 @Mixin( net.minecraft.enchantment.FireAspectEnchantment.class)
 public class FireAspectEnchantmentMixin extends Enchantment {
@@ -22,7 +23,8 @@ public class FireAspectEnchantmentMixin extends Enchantment {
 	public boolean isAcceptableItem(ItemStack stack) {
 		
 		return super.isAcceptableItem(stack) || (
-			stack.getItem() instanceof AxeItem
+			ConfigHandler.config.fireAspectOnAxe
+			&& stack.getItem() instanceof AxeItem
 		);
 	}
 }
